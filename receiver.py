@@ -41,7 +41,7 @@ class CustomHandler:
 async def health_check():
     ping_url = os.getenv('PING_URL', 'https://healthcheck.io/ping/')
     ping_id = os.getenv('PING_ID', '101fcaa8-32c5-4281-936f-330412b7afa4')
-    ping_timeout = os.getenv('PING_TIMEOUT', '60')
+    ping_timeout = int(os.getenv('PING_TIMEOUT', '60'))
     _logger.info('Reporting own health to: %s', f'{ping_url}{ping_id}')
     while True:
         requests.get(f'{ping_url}{ping_id}')
