@@ -49,7 +49,7 @@ async def health_check():
 
 if __name__ == '__main__':
     handler = CustomHandler()
-    controller = Controller(handler, hostname='127.0.0.1', port=10025)
+    controller = Controller(handler, hostname='0.0.0.0', port=10025)
     # Run the event loop in a separate thread.
     controller.start()
     # Wait for the user to press Return.
